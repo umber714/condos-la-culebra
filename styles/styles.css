@@ -1,0 +1,228 @@
+/* ===== BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+    padding-bottom: 70px;
+}
+
+.condo-img {
+    width: 100%;       /* Fills card width */
+    height: 200px;     /* Fixed height (adjust as needed) */
+    object-fit: cover; /* Magic! Covers area without stretching */
+    object-position: center; /* Focus on center of image */
+  }
+
+/* ===== HEADER ===== */
+header {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* ===== HERO BANNER ===== */
+.hero-banner {
+    /* Base styles */
+    position: relative;
+    width: 100%;
+    height: 35vh;
+    background: 
+      linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url('/images/branding/banner-desktop.webp') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+    /* Mobile-first adjustments */
+    @media (min-width: 768px) {
+      height: 80vh;
+      min-height: 600px;
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url('/images/branding/banner-desktop.webp');
+    }
+  }
+  
+/* ===== CONDO LISTINGS ===== */
+.condo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color:/* #81C2AE; */ #f8f9fa;
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    background-attachment: local;
+    padding: 20px;
+    border-radius: 8px; /* Soft edges */
+      }
+
+.condo-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+/* ===== WHATSAPP BUTTON ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 99;
+    overflow: hidden; /* Crucial - contains the image */
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+/* Add these new rules */
+.whatsapp-float img {
+    width: 34px; /* Slightly smaller than container */
+    height: 34px;
+    object-fit: contain; /* Prevents stretching */
+    display: block; /* Removes extra space under image */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); /* Gentle hover effect */
+    background: #128C7E; /* Darker green on hover */
+}
+
+.instagram-float {
+  position: fixed;
+  bottom: 90px; /* Stacked above WhatsApp button */
+  right: 20px;
+  background: #E1306C; /* Instagram brand color */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 99;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.instagram-float img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* ===== IMAGE GALLERY MODAL ===== */
+/* Modal Backdrop */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+  }
+  
+  /* Visible Close Button */
+  /* Updated Close Button - Right Side */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Changed from left to right */
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    transition: all 0.2s;
+  }
+  
+  .close-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    max-width: 95vw;
+    max-height: 95vh;
+    margin: 2.5vh auto;
+    overflow: auto;
+  }
+/* ===== FOOTER ===== */
+footer {
+    background: #78AF91;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Gallery Container */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    max-height: 70vh; /* Limits height with scroll */
+    overflow-y: auto;  /* Adds scroll if needed */
+    padding: 10px;
+  }
+  
+  /* Individual Images */
+  .gallery img {
+    width: 100%;
+    height: 200px;      /* Fixed height */
+    object-fit: cover;  /* Smart cropping */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  
+  /* Zoom effect on hover */
+  .gallery img:hover {
+    transform: scale(1.02);
+  }
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (min-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+}
